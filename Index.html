@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Jude Management | Real Estate & Development</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #c5a880;
+            --text-dark: #2d3748;
+            --text-light: #ffffff;
+            --bg-light: #f7fafc;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }
+        
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.95));
+            min-height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); padding: 2rem;
+        }
+        .skyline-graphic { width: 90px; height: 65px; margin-bottom: 1.2rem; fill: var(--secondary); opacity: 0.95; }
+        .hero h1 { font-size: 2.8rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 0.5rem; }
+        .hero h1 span { color: var(--secondary); }
+        .hero p { font-size: 1.1rem; max-width: 700px; opacity: 0.9; }
+
+        .services { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .service-card { background: white; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); text-align: center; }
+        .service-icon { width: 45px; height: 45px; margin-bottom: 1.2rem; fill: var(--primary); }
+        .service-card { 
+            background: white; 
+            padding: 2.5rem; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            border-top: 4px solid var(--primary); 
+            text-align: center; 
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        /* THIS IS THE MISSING GOLD HIGHLIGHT BLOCK */
+        .service-card:hover { 
+            transform: translateY(-5px);
+            border-top-color: var(--secondary); 
+        }
+.service-card h3 { margin-bottom: 1rem; color: var(--primary); }
+
+        .contact-section { background-color: var(--primary); color: var(--text-light); padding: 5rem 2rem; }
+        .contact-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        
+        .contact-details h2 { font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2; }
+        .contact-details h2 span { color: var(--secondary); }
+        .contact-details p.intro { margin-bottom: 2.5rem; font-size: 1.1rem; opacity: 0.9; }
+        .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+        .contact-item { display: flex; align-items: flex-start; gap: 1.5rem; background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 8px; }
+        .contact-icon { width: 24px; height: 24px; fill: var(--secondary); flex-shrink: 0; margin-top: 4px; }
+        .contact-text h3 { color: var(--secondary); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.25rem; }
+        .contact-text p, .contact-text a { color: var(--text-light); text-decoration: none; font-size: 1.1rem; }
+        .contact-text a:hover { color: var(--secondary); }
+
+        .form-container { background: white; padding: 3rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); color: var(--text-dark); }
+        .form-container h3 { color: var(--primary); font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .form-container p { margin-bottom: 2rem; color: #718096; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: var(--primary); }
+        .form-control { width: 100%; padding: 0.85rem 1rem; border: 1px solid #cbd5e0; border-radius: 4px; font-size: 1rem; color: var(--text-dark); }
+        textarea.form-control { resize: vertical; min-height: 120px; }
+        .btn-submit { width: 100%; background-color: var(--primary); color: white; border: none; padding: 1.1rem; font-size: 1rem; font-weight: 600; border-radius: 4px; cursor: pointer; transition: background-color 0.2s; }
+        .btn-submit:hover { background-color: #122542; }
+
+        footer { background-color: #0f2038; color: rgba(255,255,255,0.6); text-align: center; padding: 2.5rem 2rem; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        @media (max-width: 968px) { .contact-container { grid-template-columns: 1fr; gap: 3rem; } .hero h1 { font-size: 2.2rem; } .form-container { padding: 2rem; } }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <svg class="skyline-graphic" viewBox="0 0 24 24"><path d="M2,21H22V23H2V21M4,19W7,19V11H4V19M5,12H6V14H5V12M5,15H6V17H5V15M8,19H11V3H8V19M9,4H10V6H9V4M9,7H10V9H9V7M9,10H10V12H9V10M9,13H10V15H9V13M9,16H10V18H9V16M12,19H15V7H12V19M13,8H14V10H13V8M13,11H14V13H13V11M13,14H14V16H13V14M13,17H14V18H13V17M16,19H19V10H16V19M17,11H18V13H17V11M17,14H18V16H17V14M17,17H18V18H17V17Z"/></svg>
+        <p><h1>Team Jude <span><br>Management</span></h1></p>
+        <p>Building wealth and community through premier real estate, professional brokerage services, and innovative property development.</p>
+    </header>
+
+    <section class="services">
+        <div class="services-grid">
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <p>Real Estate Management</h3>
+                <p>Maximizing property value and ensuring seamless day-to-day operations with dedicated, proactive oversight.</p>
+            </div>
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"/></svg>
+                <h3>Brokerage Services</h3>
+                <p>Guiding buyers, sellers, and investors through complex market landscapes with expert advocacy and local insight.</p>
+            </div>
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                <h3>Property Development</h3>
+                <p>Transforming visions into reality through meticulous planning, modern design, and sustainable construction practices.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-details">
+                <h2>Connect With <span>Our Team</span></h2>
+                <p class="intro">Whether you have an asset management inquiry or a development plan to propose, we are ready to assist you.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-12-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <div class="contact-text">
+                            <h3>Our Office</h3>
+                            <p>Plymouth, MI <br>Plymouth, MI, 48170</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <div class="contact-text">
+                            <h3>Email Us</h3>
+                            <p><a href="mailto:info@teamjude.com">info@teamjude.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        <div class="contact-text">
+                            <h3>Call Us</h3>
+                            <p><a href="tel:+13139995152">(313) 999-5152</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-container">
+                <h3>Send a Message</h3>
+                <p>Fill out the form below and a representative will contact you shortly.</p>
+                <form action="https://web3forms.com" method="POST">
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    <input type="hidden" name="subject" value="New Website Inquiry">
+                    <input type="checkbox" name="botcheck" style="display: none;">
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">Area of Interest</label>
+                        <select id="interest" name="interest" class="form-control">
+                            <option value="Management">Real Estate Management</option>
+                            <option value="Brokerage">Brokerage Services</option>
+                            <option value="Development">Property Development</option>
+                            <option value="General">General Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Team Jude Management. All rights reserved. | teamjude.com</p>
+    </footer>
+
+</body>
+</html>
