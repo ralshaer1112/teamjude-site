@@ -1,177 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Jude Management | Real Estate & Development</title>
-    <style>
-        :root {
-            --primary: #1a365d;
-            --secondary: #c5a880;
-            --text-dark: #2d3748;
-            --text-light: #ffffff;
-            --bg-light: #f7fafc;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }
-        
-        .hero {
-            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.95));
-            min-height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); padding: 2rem;
-        }
-        .skyline-graphic { width: 90px; height: 65px; margin-bottom: 1.2rem; fill: var(--secondary); opacity: 0.95; }
-        .hero h1 { font-size: 2.8rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 0.5rem; }
-        .hero h1 span { color: var(--secondary); }
-        .hero p { font-size: 1.1rem; max-width: 700px; opacity: 0.9; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team Jude Management | Real Estate &amp; Development</title>
+<meta name="description" content="Team Jude Management provides real estate management, brokerage services, and property development from Plymouth, Michigan.">
+<meta name="theme-color" content="#14222b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #14222b;
+  --ink-soft: #1d303b;
+  --paper: #f4f6f6;
+  --glass: #dfe8ea;
+  --brick: #b4533a;
+  --brick-dark: #8f3f2a;
+  --steel: #55656e;
+  --white: #ffffff;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--white);
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--brick); outline-offset: 3px; }
+.hero :focus-visible { outline-color: #f0b8a6; }
+.wrap { width: min(1120px, 100% - 3rem); margin-inline: auto; }
 
-        .services { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .service-card { background: white; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); text-align: center; }
-        .service-icon { width: 45px; height: 45px; margin-bottom: 1.2rem; fill: var(--primary); }
-        .service-card { 
-            background: white; 
-            padding: 2.5rem; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
-            border-top: 4px solid var(--primary); 
-            text-align: center; 
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        
-        /* THIS IS THE MISSING GOLD HIGHLIGHT BLOCK */
-        .service-card:hover { 
-            transform: translateY(-5px);
-            border-top-color: var(--secondary); 
-        }
-.service-card h3 { margin-bottom: 1rem; color: var(--primary); }
+/* Hero */
+.hero { background: var(--ink); color: var(--white); }
+.nav { display: flex; justify-content: space-between; align-items: center; padding-block: 1.5rem; }
+.mark { font-family: var(--display); font-weight: 800; font-stretch: 112%; font-size: 1.25rem; text-decoration: none; letter-spacing: 0.01em; white-space: nowrap; }
+.mark span { font-weight: 600; opacity: 0.7; }
+.nav ul { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
+.nav ul a { text-decoration: none; font-weight: 500; padding-block: 0.25rem; border-bottom: 1px solid transparent; }
+.nav ul a:hover { border-bottom-color: currentColor; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3rem; align-items: center; padding-block: 3.5rem 5rem; }
+h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: clamp(2.6rem, 5.6vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.5rem;
+}
+.lede { font-size: 1.2rem; color: #cbd8dd; max-width: 34rem; margin: 0 0 2.25rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 1.25rem 1.75rem; align-items: center; }
+.btn {
+  display: inline-block;
+  font: 600 1rem/1 var(--body);
+  background: var(--brick);
+  color: var(--white);
+  padding: 1rem 1.6rem;
+  border: 0;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--brick-dark); }
+.textlink { font-weight: 500; text-decoration: underline; text-underline-offset: 0.3em; text-decoration-thickness: 1px; }
+.elevation { width: 100%; height: auto; display: block; }
+.elevation * { fill: none; stroke: #d4e0e4; stroke-width: 1.5; stroke-linecap: square; vector-effect: non-scaling-stroke; }
+.elevation [fill="var(--brick)"] { fill: var(--brick); stroke: var(--brick); }
+.elevation .d { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.6s ease-out forwards; animation-delay: var(--t); }
+@keyframes draw { to { stroke-dashoffset: 0; } }
 
-        .contact-section { background-color: var(--primary); color: var(--text-light); padding: 5rem 2rem; }
-        .contact-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-        
-        .contact-details h2 { font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2; }
-        .contact-details h2 span { color: var(--secondary); }
-        .contact-details p.intro { margin-bottom: 2.5rem; font-size: 1.1rem; opacity: 0.9; }
-        .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
-        .contact-item { display: flex; align-items: flex-start; gap: 1.5rem; background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 8px; }
-        .contact-icon { width: 24px; height: 24px; fill: var(--secondary); flex-shrink: 0; margin-top: 4px; }
-        .contact-text h3 { color: var(--secondary); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.25rem; }
-        .contact-text p, .contact-text a { color: var(--text-light); text-decoration: none; font-size: 1.1rem; }
-        .contact-text a:hover { color: var(--secondary); }
+/* Services */
+.services { background: var(--paper); padding-block: 5.5rem; }
+h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 108%;
+  font-size: clamp(1.9rem, 3.6vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem;
+}
+.services h2 { max-width: 34rem; margin-bottom: 3rem; }
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 13rem;
+  gap: 1rem 3rem;
+  align-items: baseline;
+  padding-block: 2rem;
+  border-top: 1px solid #b9c6cb;
+}
+.row:last-child { border-bottom: 1px solid #b9c6cb; }
+h3 { font-family: var(--display); font-weight: 700; font-stretch: 106%; font-size: 1.6rem; line-height: 1.15; margin: 0; }
+.row p { margin: 0; color: var(--steel); max-width: 34rem; }
+.row button {
+  font: 600 1rem/1.2 var(--body);
+  color: var(--brick-dark);
+  background: none;
+  border: 0;
+  padding: 0.4rem 0;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.row button { justify-self: start; }
+.row button:hover { color: var(--ink); }
 
-        .form-container { background: white; padding: 3rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); color: var(--text-dark); }
-        .form-container h3 { color: var(--primary); font-size: 1.8rem; margin-bottom: 0.5rem; }
-        .form-container p { margin-bottom: 2rem; color: #718096; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: var(--primary); }
-        .form-control { width: 100%; padding: 0.85rem 1rem; border: 1px solid #cbd5e0; border-radius: 4px; font-size: 1rem; color: var(--text-dark); }
-        textarea.form-control { resize: vertical; min-height: 120px; }
-        .btn-submit { width: 100%; background-color: var(--primary); color: white; border: none; padding: 1.1rem; font-size: 1rem; font-weight: 600; border-radius: 4px; cursor: pointer; transition: background-color 0.2s; }
-        .btn-submit:hover { background-color: #122542; }
+/* Contact */
+.contact { padding-block: 5.5rem; }
+.contact-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 4rem; align-items: start; }
+.contact .intro { color: var(--steel); max-width: 28rem; margin: 0 0 2.5rem; }
+dl { margin: 0; }
+dt { font-weight: 600; margin-top: 1.5rem; }
+dt:first-child { margin-top: 0; }
+dd { margin: 0.15rem 0 0; }
+dd a { text-underline-offset: 0.25em; }
+form { background: var(--glass); padding: 2.25rem; border-radius: 8px; display: grid; gap: 1.25rem; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+label { display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; }
+input, select, textarea {
+  width: 100%;
+  font: 400 1rem/1.4 var(--body);
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid #8fa1a8;
+  border-radius: 4px;
+  padding: 0.8rem 0.9rem;
+}
+textarea { min-height: 9rem; resize: vertical; }
+form .btn { justify-self: start; }
 
-        footer { background-color: #0f2038; color: rgba(255,255,255,0.6); text-align: center; padding: 2.5rem 2rem; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1); }
-        @media (max-width: 968px) { .contact-container { grid-template-columns: 1fr; gap: 3rem; } .hero h1 { font-size: 2.2rem; } .form-container { padding: 2rem; } }
-    </style>
+footer { background: var(--ink); color: #b7c6cc; padding-block: 2rem; font-size: 0.95rem; }
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; padding-block: 2rem 3.5rem; }
+  .row { grid-template-columns: 1fr; gap: 0.75rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .two { grid-template-columns: 1fr; }
+  form { padding: 1.5rem; }
+}
+@media (max-width: 480px) {
+  .nav ul { gap: 1rem; }
+  .mark { font-size: 1.05rem; }
+  .nav { gap: 1rem; }
+  .nav li:first-child { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .elevation .d { animation: none; stroke-dashoffset: 0; }
+}
+</style>
 </head>
 <body>
 
-    <header class="hero">
-        <svg class="skyline-graphic" viewBox="0 0 24 24"><path d="M2,21H22V23H2V21M4,19W7,19V11H4V19M5,12H6V14H5V12M5,15H6V17H5V15M8,19H11V3H8V19M9,4H10V6H9V4M9,7H10V9H9V7M9,10H10V12H9V10M9,13H10V15H9V13M9,16H10V18H9V16M12,19H15V7H12V19M13,8H14V10H13V8M13,11H14V13H13V11M13,14H14V16H13V14M13,17H14V18H13V17M16,19H19V10H16V19M17,11H18V13H17V11M17,14H18V16H17V14M17,17H18V18H17V17Z"/></svg>
-        <h1>Team Jude Management</h1>
-        <p>Building wealth and community through premier real estate, professional brokerage services, and innovative property development.</p>
-    </header>
-
-    <section class="services">
-        <div class="services-grid">
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                <p>Real Estate Management</h3>
-                <p>Maximizing property value and ensuring seamless day-to-day operations with dedicated, proactive oversight.</p>
-            </div>
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"/></svg>
-                <h3>Brokerage Services</h3>
-                <p>Guiding buyers, sellers, and investors through complex market landscapes with expert advocacy and local insight.</p>
-            </div>
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-                <h3>Property Development</h3>
-                <p>Transforming visions into reality through meticulous planning, modern design, and sustainable construction practices.</p>
-            </div>
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="mark" href="#top">Team Jude <span>Management</span></a>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero-grid" id="top">
+      <div>
+        <h1>Real estate, managed, brokered, and built.</h1>
+        <p class="lede">Building wealth and community through premier real estate, professional brokerage services, and innovative property development.</p>
+        <div class="actions">
+          <a class="btn" href="#contact">Contact our team</a>
+          <a class="textlink" href="#services">See our services</a>
         </div>
-    </section>
+      </div>
+      <svg class="elevation" viewBox="0 0 620 440" role="img" aria-label="Line drawing of a managed apartment building, an office tower, and a building under construction with a crane">
+      <line class="d" style="--t:0.00s" pathLength="1" x1="10" y1="420" x2="610" y2="420"/>
+      <rect class="d" style="--t:0.20s" pathLength="1" x="60" y="230" width="200" height="190"/>
+      <rect class="d" style="--t:0.50s" pathLength="1" x="78" y="248" width="30" height="22"/>
+      <rect class="d" style="--t:0.55s" pathLength="1" x="124" y="248" width="30" height="22"/>
+      <rect class="d" style="--t:0.60s" pathLength="1" x="170" y="248" width="30" height="22"/>
+      <rect class="d" style="--t:0.65s" pathLength="1" x="216" y="248" width="30" height="22"/>
+      <rect class="d" style="--t:0.55s" pathLength="1" x="78" y="282" width="30" height="22"/>
+      <rect class="d" style="--t:0.60s" pathLength="1" x="124" y="282" width="30" height="22" fill="var(--brick)"/>
+      <rect class="d" style="--t:0.65s" pathLength="1" x="170" y="282" width="30" height="22"/>
+      <rect class="d" style="--t:0.70s" pathLength="1" x="216" y="282" width="30" height="22"/>
+      <rect class="d" style="--t:0.60s" pathLength="1" x="78" y="316" width="30" height="22"/>
+      <rect class="d" style="--t:0.65s" pathLength="1" x="124" y="316" width="30" height="22"/>
+      <rect class="d" style="--t:0.70s" pathLength="1" x="170" y="316" width="30" height="22"/>
+      <rect class="d" style="--t:0.75s" pathLength="1" x="216" y="316" width="30" height="22" fill="var(--brick)"/>
+      <rect class="d" style="--t:0.65s" pathLength="1" x="78" y="350" width="30" height="22" fill="var(--brick)"/>
+      <rect class="d" style="--t:0.70s" pathLength="1" x="124" y="350" width="30" height="22"/>
+      <rect class="d" style="--t:0.75s" pathLength="1" x="170" y="350" width="30" height="22"/>
+      <rect class="d" style="--t:0.80s" pathLength="1" x="216" y="350" width="30" height="22"/>
+      <line class="d" style="--t:0.90s" pathLength="1" x1="60" y1="372" x2="260" y2="372"/>
+      <rect class="d" style="--t:1.00s" pathLength="1" x="72" y="382" width="52" height="38"/>
+      <rect class="d" style="--t:1.10s" pathLength="1" x="136" y="382" width="52" height="38"/>
+      <rect class="d" style="--t:1.20s" pathLength="1" x="200" y="382" width="52" height="38"/>
+      <rect class="d" style="--t:0.40s" pathLength="1" x="290" y="90" width="150" height="330"/>
+      <line class="d" style="--t:0.84s" pathLength="1" x1="290" y1="120" x2="440" y2="120"/>
+      <line class="d" style="--t:0.88s" pathLength="1" x1="290" y1="150" x2="440" y2="150"/>
+      <line class="d" style="--t:0.92s" pathLength="1" x1="290" y1="180" x2="440" y2="180"/>
+      <line class="d" style="--t:0.96s" pathLength="1" x1="290" y1="210" x2="440" y2="210"/>
+      <line class="d" style="--t:1.00s" pathLength="1" x1="290" y1="240" x2="440" y2="240"/>
+      <line class="d" style="--t:1.04s" pathLength="1" x1="290" y1="270" x2="440" y2="270"/>
+      <line class="d" style="--t:1.08s" pathLength="1" x1="290" y1="300" x2="440" y2="300"/>
+      <line class="d" style="--t:1.12s" pathLength="1" x1="290" y1="330" x2="440" y2="330"/>
+      <line class="d" style="--t:1.16s" pathLength="1" x1="290" y1="360" x2="440" y2="360"/>
+      <line class="d" style="--t:1.20s" pathLength="1" x1="290" y1="390" x2="440" y2="390"/>
+      <line class="d" style="--t:1.05s" pathLength="1" x1="320" y1="90" x2="320" y2="420"/>
+      <line class="d" style="--t:1.10s" pathLength="1" x1="350" y1="90" x2="350" y2="420"/>
+      <line class="d" style="--t:1.15s" pathLength="1" x1="380" y1="90" x2="380" y2="420"/>
+      <line class="d" style="--t:1.20s" pathLength="1" x1="410" y1="90" x2="410" y2="420"/>
+      <line class="d" style="--t:1.40s" pathLength="1" x1="460" y1="290" x2="460" y2="420"/>
+      <line class="d" style="--t:1.40s" pathLength="1" x1="510" y1="290" x2="510" y2="420"/>
+      <line class="d" style="--t:1.40s" pathLength="1" x1="560" y1="290" x2="560" y2="420"/>
+      <line class="d" style="--t:1.60s" pathLength="1" x1="460" y1="290" x2="560" y2="290"/>
+      <line class="d" style="--t:1.70s" pathLength="1" x1="460" y1="340" x2="560" y2="340"/>
+      <line class="d" style="--t:1.78s" pathLength="1" x1="460" y1="380" x2="560" y2="380"/>
+      <line class="d" style="--t:1.70s" pathLength="1" x1="560" y1="290" x2="560" y2="70"/>
+      <line class="d" style="--t:1.90s" pathLength="1" x1="560" y1="70" x2="600" y2="70"/>
+      <line class="d" style="--t:1.90s" pathLength="1" x1="430" y1="70" x2="600" y2="70"/>
+      <line class="d" style="--t:2.00s" pathLength="1" x1="560" y1="70" x2="520" y2="40"/>
+      <line class="d" style="--t:2.00s" pathLength="1" x1="520" y1="40" x2="430" y2="70"/>
+      <line class="d" style="--t:2.10s" pathLength="1" x1="478" y1="70" x2="478" y2="190"/>
+      <rect class="d" style="--t:2.20s" pathLength="1" x="466" y="190" width="24" height="18" fill="var(--brick)"/>
+      </svg>
+    </div>
+  </div>
+</header>
 
-    <section class="contact-section">
-        <div class="contact-container">
-            <div class="contact-details">
-                <h2>Connect With <span>Our Team</span></h2>
-                <p class="intro">Whether you have an asset management inquiry or a development plan to propose, we are ready to assist you.</p>
-                
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-12-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        <div class="contact-text">
-                            <h3>Our Office</h3>
-                            <p>Plymouth, MI <br>Plymouth, MI, 48170</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        <div class="contact-text">
-                            <h3>Email Us</h3>
-                            <p><a href="mailto:info@teamjude.com">info@teamjude.com</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                        <div class="contact-text">
-                            <h3>Call Us</h3>
-                            <p><a href="tel:+13139995152">(313) 999-5152</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-container">
-                <h3>Send a Message</h3>
-                <p>Fill out the form below and a representative will contact you shortly.</p>
-                <form action="https://web3forms.com" method="POST">
-                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-                    <input type="hidden" name="subject" value="New Website Inquiry">
-                    <input type="checkbox" name="botcheck" style="display: none;">
+<main>
+  <section class="services" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <h2 id="services-title">Three ways we work with property</h2>
+      <div class="row">
+        <h3>Real estate management</h3>
+        <p>Maximizing property value and ensuring seamless day-to-day operations with dedicated, proactive oversight.</p>
+        <button type="button" data-interest="Real Estate Management">Ask about management</button>
+      </div>
+      <div class="row">
+        <h3>Brokerage services</h3>
+        <p>Guiding buyers, sellers, and investors through complex market landscapes with expert advocacy and local insight.</p>
+        <button type="button" data-interest="Brokerage Services">Ask about brokerage</button>
+      </div>
+      <div class="row">
+        <h3>Property development</h3>
+        <p>Transforming visions into reality through meticulous planning, modern design, and sustainable construction practices.</p>
+        <button type="button" data-interest="Property Development">Ask about development</button>
+      </div>
+    </div>
+  </section>
 
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="interest">Area of Interest</label>
-                        <select id="interest" name="interest" class="form-control">
-                            <option value="Management">Real Estate Management</option>
-                            <option value="Brokerage">Brokerage Services</option>
-                            <option value="Development">Property Development</option>
-                            <option value="General">General Inquiry</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Submit Inquiry</button>
-                </form>
-            </div>
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <div>
+        <h2 id="contact-title">Connect with our team</h2>
+        <p class="intro">Whether you have an asset management inquiry or a development plan to propose, we are ready to assist you.</p>
+        <dl>
+          <dt>Our office</dt>
+          <dd>Plymouth, MI 48170</dd>
+          <dt>Email us</dt>
+          <dd><a href="mailto:info@teamjude.com">info@teamjude.com</a></dd>
+          <dt>Call us</dt>
+          <dd><a href="tel:+13139995152">(313) 999-5152</a></dd>
+        </dl>
+      </div>
+
+      <!-- IMPORTANT: replace the action below with the form handler your current site uses
+           (for example a Formspree, Netlify Forms, or Getform address). -->
+      <form action="YOUR_FORM_HANDLER_URL" method="POST">
+        <div class="two">
+          <div>
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
         </div>
-    </section>
+        <div class="two">
+          <div>
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div>
+            <label for="interest">Area of interest</label>
+            <select id="interest" name="interest">
+              <option>Real Estate Management</option>
+              <option>Brokerage Services</option>
+              <option>Property Development</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="message">Your message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button class="btn" type="submit">Send inquiry</button>
+      </form>
+    </div>
+  </section>
+</main>
 
-    <footer>
-        <p>&copy; 2026 Team Jude Management. All rights reserved. | teamjude.com</p>
-    </footer>
+<footer>
+  <div class="wrap">&copy; 2026 Team Jude Management. All rights reserved. | teamjude.com</div>
+</footer>
 
+<script>
+  document.querySelectorAll('[data-interest]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.getElementById('interest').value = btn.getAttribute('data-interest');
+      document.getElementById('contact').scrollIntoView();
+      document.getElementById('name').focus({ preventScroll: true });
+    });
+  });
+</script>
 </body>
 </html>
